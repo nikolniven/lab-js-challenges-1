@@ -16,13 +16,13 @@ const repeatedWords = [
 const myWord = "tter";
 function howManyTimes(arr, word) {
   if (!arr) return 0;
-  let currentcount = 0;
-  for (i = 0; i < arr.length; i++) {
+  let currentCount = 0;
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i].includes(word)) {
-      currentcount++;
+      currentCount++;
     }
   }
-  return currentcount;
+  return currentCount;
 }
 
 howManyTimes(repeatedWords, myWord);
@@ -42,14 +42,54 @@ console.log(createSequence(9));
 
 // Iteration 3 | Multiply for Each
 const numbers = [1, 2, 5, 10, 13, 50];
+let toMulti = 2;
 
-function multiplyBy() {}
+function multiplyBy(arr, num) {
+  if (!arr.length) return [];
+  let sum = [];
+  // for (let i = 0; i < arr.length; i++)
+  arr.forEach((element) => {
+    sum.push(element * num);
+  });
+  return sum;
+}
+
+console.log(multiplyBy(numbers, toMulti));
 
 // Iteration 4 | Filter Out
 const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
 const toRemove = ["cat", "dog"];
 
-function filterOut() {}
+// function filterOut(arr, toFilter) {
+//   if (!arr.length) {
+//     return null;
+//   } else if (!toFilter.length) {
+//     return arr;
+//   }
+//   let newArr = [];
+//   let howMany = 0;
+//   let finalResult = [];
+//   if (arr.includes(toFilter)) {
+//     newArr.shift(toFilter);
+//     howMany = newArr.length;
+//     finalResult.slice(howMany);
+//   }
+//   return finalResult;
+// }
+// const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
+// const toFilter = ["cat", "dog"];
+function filterOut(arr, toFilter) {
+  if (!arr.length) return null;
+  if (!toFilter.length) return arr;
+  const myRes = [];
+  arr.forEach((element) => {
+    // !["cat", "dog"].inclues("cat")
+    if (!toFilter.includes(element)) {
+      myRes.push(element);
+    }
+  });
+  return myRes;
+}
 
 // Iteration 5 | Unique Arrays
 const duplicateWords = [
@@ -66,7 +106,21 @@ const duplicateWords = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  if (!arr.length) return null;
+  return [...new Set(arr)];
+  const myProvisoryArr = [];
+  arr.forEach((element) => {
+    if (!myProvisoryArr.includes(element)) {
+      myProvisoryArr.push(element);
+    }
+  });
+  //  arr.forEach((element)=>
+  //   if(arr.indexOf(element).includes(element)){
+  //     myProvisoryArr.push(element);
+  //  )
+  return myProvisoryArr;
+}
 
 // Bonus: Iteration 6 | Product of Adjacent Numbers
 const matrix = [
