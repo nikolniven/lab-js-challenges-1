@@ -108,7 +108,6 @@ const duplicateWords = [
 
 function uniquifyArray(arr) {
   if (!arr.length) return null;
-  return [...new Set(arr)];
   const myProvisoryArr = [];
   arr.forEach((element) => {
     if (!myProvisoryArr.includes(element)) {
@@ -120,7 +119,7 @@ function uniquifyArray(arr) {
   //     myProvisoryArr.push(element);
   //  )
   return myProvisoryArr;
-}
+} // this code does EXPLICITILY what [...new Set()] does
 
 // Bonus: Iteration 6 | Product of Adjacent Numbers
 const matrix = [
